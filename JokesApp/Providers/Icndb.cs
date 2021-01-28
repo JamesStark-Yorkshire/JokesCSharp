@@ -12,20 +12,20 @@ namespace JokesApp.Providers
     {
         private readonly string URL = "http://api.icndb.com/jokes/";
 
-        private HttpClient client = new HttpClient();
+        private readonly HttpClient Client = new HttpClient();
 
         public async Task<List<Joke>> getJokes(int amount)
         {
-            string response = await this.client.GetStringAsync(URL + "random/" + amount);
+            string response = await this.Client.GetStringAsync(URL + "random/" + amount);
 
             Payload payload = JsonSerializer.Deserialize<Payload>(response);
 
-            List<Joke> jokes = this.castToJoke(payload);
+            List<Joke> jokes = this.CastToJoke(payload);
 
             return jokes;
         }
 
-        private List<Joke> castToJoke(Payload payload)
+        private List<Joke> CastToJoke(Payload payload)
         {
             List<Joke> jokes = new List<Joke>();
 

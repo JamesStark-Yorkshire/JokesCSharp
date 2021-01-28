@@ -12,12 +12,12 @@ namespace JokesApp.Providers
     {
         private readonly string URL = "https://v2.jokeapi.dev/joke";
 
-        private HttpClient client = new HttpClient();
+        private readonly HttpClient Client = new HttpClient();
 
         public async Task<List<Joke>> getJokes(int amount)
         {
             {
-                string response = await this.client.GetStringAsync(URL + "/Any" + "?type=single&amount=" + amount);
+                string response = await this.Client.GetStringAsync(URL + "/Any" + "?type=single&amount=" + amount);
 
                 Payload payload = JsonConvert.DeserializeObject<Payload>(response);
 

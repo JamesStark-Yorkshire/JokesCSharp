@@ -12,9 +12,9 @@ namespace JokesApp.Controllers
     public class JokeController : Controller
     {
         // GET: JokeController
-        public async Task<IActionResult> Index(JokeService jokeService)
+        public async Task<IActionResult> Index(JokeService jokeService, int amount = 10)
         {
-            List<Joke> jokes = await jokeService.getJokes();
+            List<Joke> jokes = await jokeService.getJokes(amount);
 
             return View(jokes);
         }
