@@ -14,6 +14,7 @@ namespace JokesApp.Controllers
         // GET: JokeController
         public async Task<IActionResult> Index(JokeService jokeService, int amount = 10)
         {
+            
             List<Joke> jokes = await jokeService.getJokes(amount);
 
             return View(jokes);

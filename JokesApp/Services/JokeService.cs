@@ -9,9 +9,10 @@ namespace JokesApp.Services
 {
     public class JokeService
     {
-        private readonly ProviderInterface[] Providers = { 
-            new Icndb(),
-            new Sv443()
+        private readonly ProviderInterface[] Providers = {
+            //new Icndb(),
+            //new Sv443(),
+            new OfficeJoke()
         };
 
         public async Task<List<Joke>> getJokes(int amount = 10)
