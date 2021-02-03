@@ -11,10 +11,16 @@ namespace JokesApp.Services.Tests
     [TestClass()]
     public class JokeServiceTests
     {
+        private JokeService service = new JokeService();
+        
         [TestMethod()]
         public void getJokesTest()
         {
-            Assert.Fail();
+            int amount = new Random().Next(1, 20);
+            
+            Task<List<Models.Joke>> jokes = this.service.getJokes(amount);
+
+            Assert.AreEqual(jokes.Result.Count, amount);
         }
     }
 }

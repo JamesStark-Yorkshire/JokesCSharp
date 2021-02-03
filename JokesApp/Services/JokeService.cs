@@ -10,8 +10,8 @@ namespace JokesApp.Services
     public class JokeService
     {
         private readonly ProviderInterface[] Providers = {
-            //new Icndb(),
-            //new Sv443(),
+            new Icndb(),
+            new Sv443(),
             new OfficeJoke()
         };
 
